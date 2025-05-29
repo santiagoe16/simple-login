@@ -1,12 +1,20 @@
-# React + Vite
+# Frontend - Protech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el frontend de la aplicación Protech. Se conecta al backend desarrollado en Django y permite el registro, login, edición y eliminación de usuarios.
 
-Currently, two official plugins are available:
+## 🛠️ Pasos para usar el frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clona el repositorio con el comando git clone seguido de la URL de tu repositorio.
 
-## Expanding the ESLint configuration
+2. Entra a la carpeta del frontend usando cd tu-repo/frontend.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Instala las dependencias usando npm install.
+
+4. Crea el archivo .env y establece la url del backend normalmente seria(VITE_API_URL=http://localhost:8000/api/users/)
+
+4. Inicia la aplicación usando npm run dev.
+
+5. Abre tu navegador y visita la dirección http://localhost:5173.
+
+Asegúrate de que el backend esté corriendo en http://localhost:8000 para que la aplicación funcione correctamente.
+

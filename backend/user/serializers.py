@@ -1,17 +1,13 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import get_user_model
-from rest_framework.validators import UniqueValidator
 
 User = get_user_model()
 
 class CustomUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only = True, required = True)
     #valida el formato del email
-    email = serializers.EmailField(
-        required=True,
-        validators=[UniqueValidator(queryset=User.objects.all())]
-    )
+    email = serializers.EmailField(required=True)
 
     class Meta: 
         model = User
@@ -19,6 +15,11 @@ class CustomUserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
+
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("email already exist.")
+        return value
 
     def validate_password(self, password):
         if len(password) < 6:
@@ -34,7 +35,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     
 class UserProfileSerializer(serializers.ModelSerializer):
     #verifica que se aun email valido
-    email = serializers.EmailField(required=False, validators=[UniqueValidator(queryset=User.objects.all())])
+    email = serializers.EmailField(required=False)
 
     class Meta:
         model = User
@@ -44,6 +45,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'password': {"required": False},
             'full_name': {'required': False}
         }
+    
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("email already exist.")
+        return value
+    
     def validate_password(self, password):
         #verifica que la contraseña tenga al menos 6 caracteres
         if password:
