@@ -3,7 +3,7 @@
 Este proyecto es una aplicación web completa que permite registrar usuarios, iniciar sesión, editar sus datos y eliminar sus cuentas. Está construida con React en el frontend y Django REST Framework en el backend.
 
 ---
-### video presentando la app web: [text](https://drive.google.com/file/d/16XD8nTH5uIq4m8yTO3COJ0PT79r-vCiM/view?usp=sharing)
+### video presentando la app web: [Link del video](https://drive.google.com/file/d/16XD8nTH5uIq4m8yTO3COJ0PT79r-vCiM/view?usp=sharing)
 
 ## 📌 Funcionalidades Requeridas
 
